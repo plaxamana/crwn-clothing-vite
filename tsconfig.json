@@ -8,7 +8,11 @@
     "types": ["vite-plugin-svgr/client"],
     "baseUrl": "./src",
     "paths": {
-      "*": ["types/*"]
+      "*": ["./types/*"],
+      "components/*": ["./components/*"],
+      "routes/*": ["./routes/*"],
+      "assets/*": ["./assets/*"],
+      "utils/*": ["./utils/*"],
     },
 
     /* Bundler mode */
