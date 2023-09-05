@@ -1,6 +1,10 @@
 import { useState } from 'react';
 
-import { createAuthUserWithEmailAndPassword } from 'utils/firebase/firebase.utils';
+import {
+  auth,
+  createAuthUserWithEmailAndPassword,
+  createUserDocumentFromAuth,
+} from 'utils/firebase/firebase.utils';
 
 interface FormFields {
   displayName: string;
@@ -26,21 +30,41 @@ const SignUpForm = () => {
     setFormFields({ ...formFields, [name]: value });
   };
 
-  const handleSubmit = async (e: Event) => {
+  const resetFormFields = () => setFormFields(defaultFormFields);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    
-  }
+    // password and confirmPassword match
+    if (password !== confirmPassword) {
+      alert('Passwords must be matching');
+      return;
+    }
+
+    try {
+      // authenticate user with email and password
+      const { user } = await createAuthUserWithEmailAndPassword(
+        email,
+        password
+      );
+
+      // create user doc from the return of createAuthUserWithEmailAndPassword
+      await createUserDocumentFromAuth(user, { displayName });
+      resetFormFields();
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <>
       <h1>Sign up with your email and password</h1>
-      <form action='#' onSubmit={() => {}}>
-        <label htmlFor='display-name'>Display Name</label>
+      <form action='#' onSubmit={handleSubmit}>
+        <label htmlFor='displayName'>Display Name</label>
         <input
           type='text'
-          name='display-name'
-          id='display-name'
+          name='displayName'
+          id='displayName'
           onChange={handleChange}
           value={displayName}
           required
@@ -66,11 +90,11 @@ const SignUpForm = () => {
           required
         />
 
-        <label htmlFor='confirm-password'>Confirm Password</label>
+        <label htmlFor='confirmPassword'>Confirm Password</label>
         <input
           type='password'
-          id='confirm-password'
-          name='confirm-password'
+          id='confirmPassword'
+          name='confirmPassword'
           value={confirmPassword}
           onChange={handleChange}
           required
