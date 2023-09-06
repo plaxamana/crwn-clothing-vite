@@ -9,6 +9,7 @@ import {
 import FormInput from 'components/form-input/form-input.component';
 import Button from 'components/button/button.component';
 
+
 interface FormFields {
   displayName: string;
   email: string;
