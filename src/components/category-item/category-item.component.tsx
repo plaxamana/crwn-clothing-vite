@@ -1,13 +1,13 @@
 import './category-item.styles.scss';
 
-interface Props {
+export interface CategoryI {
   category: {
     imageUrl: string;
     title: string;
   }
 }
 
-const CategoryItem = ({ category }: Props) => {
+const CategoryItem = ({ category }: CategoryI) => {
   const { imageUrl, title } = category;
 
   return (
