@@ -6,7 +6,7 @@ interface ButtonTypes {
   inverted: string;
 }
 
-interface ButtonI extends ComponentPropsWithoutRef<'button'> {
+interface IButton extends ComponentPropsWithoutRef<'button'> {
   children: string;
   buttonType?: string;
 }
@@ -16,7 +16,7 @@ const BUTTON_TYPE_CLASSES: ButtonTypes = {
   inverted: 'inverted',
 };
 
-const Button = ({ children, buttonType, ...otherProps }: ButtonI) => {
+const Button = ({ children, buttonType, ...otherProps }: IButton) => {
   return (
     <button
       className={`${

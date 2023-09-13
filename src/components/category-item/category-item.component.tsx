@@ -1,13 +1,13 @@
 import './category-item.styles.scss';
 
-export interface CategoryI {
+export interface ICategory {
   category: {
     imageUrl: string;
     title: string;
   }
 }
 
-const CategoryItem = ({ category }: CategoryI) => {
+const CategoryItem = ({ category }: ICategory) => {
   const { imageUrl, title } = category;
 
   return (

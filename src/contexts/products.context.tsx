@@ -1,22 +1,27 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, Dispatch, SetStateAction } from 'react';
 import PRODUCTS from 'src/shop-data.json';
 
-export interface ProductI {
+export interface IProduct {
   id: number;
   name: string;
   imageUrl: string;
   price: number;
 }
 
-interface Products extends Array<ProductI> {}
+interface IProducts extends Array<IProduct> {}
 
-export const ProductsContext = createContext({
+interface IProductsContext {
+  products: Array<IProduct>;
+  setProducts: Dispatch<SetStateAction<IProduct[]>>;
+}
+
+export const ProductsContext = createContext<IProductsContext>({
   products: [],
-  setProducts: () => null,
+  setProducts: () => {},
 });
 
 export const ProductsProvider = ({ children }) => {
-  const [products, setProducts] = useState<Products>(PRODUCTS);
+  const [products, setProducts] = useState<IProducts>(PRODUCTS);
   const value = { products, setProducts };
 
   return (

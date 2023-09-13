@@ -1,9 +1,9 @@
 import './product-card.styles.scss';
 import Button from 'components/button/button.component';
 
-import { ProductI } from 'src/contexts/products.context';
+import { IProduct } from 'src/contexts/products.context';
 
-const ProductCard = ({ product }: { product: ProductI }) => {
+const ProductCard = ({ product }: { product: IProduct }) => {
   const { imageUrl, name, price } = product;
   
   return (

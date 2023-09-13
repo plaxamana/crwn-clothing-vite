@@ -6,6 +6,7 @@ import './index.scss';
 import App from './App';
 import { UserProvider } from 'contexts/user.context';
 import { ProductsProvider } from './contexts/products.context';
+import { CartProvider } from './contexts/cart.context';
 
 const container = document.getElementById('root')!;
 const root = ReactDOM.createRoot(container);
@@ -15,7 +16,9 @@ root.render(
     <Router>
       <UserProvider>
         <ProductsProvider>
-          <App />
+          <CartProvider>
+            <App />
+          </CartProvider>
         </ProductsProvider>
       </UserProvider>
     </Router>

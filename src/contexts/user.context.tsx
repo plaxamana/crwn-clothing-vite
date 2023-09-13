@@ -1,14 +1,19 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect, Dispatch, SetStateAction } from 'react';
 
 import {
   onAuthStateChangedListener,
   createUserDocumentFromAuth,
 } from 'utils/firebase/firebase.utils';
 
+interface IUserContext {
+  currentUser: unknown;
+  setCurrentUser: Dispatch<SetStateAction<T>>;
+}
+
 // actual value you want to access
-export const UserContext = createContext({
+export const UserContext = createContext<IUserContext>({
   currentUser: null,
-  setCurrentUser: () => null,
+  setCurrentUser: () => {},
 });
 
 export const UserProvider = ({ children }) => {

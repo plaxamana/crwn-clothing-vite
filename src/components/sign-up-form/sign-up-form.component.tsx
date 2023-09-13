@@ -10,14 +10,14 @@ import FormInput from 'components/form-input/form-input.component';
 import Button from 'components/button/button.component';
 
 
-interface FormFields {
+interface IFormFields {
   displayName: string;
   email: string;
   password: string;
   confirmPassword: string;
 }
 
-const defaultFormFields: FormFields = {
+const defaultFormFields: IFormFields = {
   displayName: '',
   email: '',
   password: '',
@@ -25,7 +25,7 @@ const defaultFormFields: FormFields = {
 };
 
 const SignUpForm = () => {
-  const [formFields, setFormFields] = useState<FormFields>(defaultFormFields);
+  const [formFields, setFormFields] = useState<IFormFields>(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {

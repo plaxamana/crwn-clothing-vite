@@ -1,12 +1,12 @@
 import type { ComponentPropsWithoutRef } from 'react';
 import './form-input.styles.scss';
 
-interface FormInputI extends ComponentPropsWithoutRef<'input'> {
+interface IFormInput extends ComponentPropsWithoutRef<'input'> {
   label: string;
   id: string;
 }
 
-export default function FormInput({ label, id, ...otherProps }: FormInputI) {
+export default function FormInput({ label, id, ...otherProps }: IFormInput) {
   return (
     <div className='group'>
       <input className='form-input' {...otherProps} />

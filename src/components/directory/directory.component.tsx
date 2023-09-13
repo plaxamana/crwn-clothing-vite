@@ -2,18 +2,18 @@ import CategoryItem from '../category-item/category-item.component';
 
 import './directory.styles.scss';
 
-export interface Categories extends Array<Category> {}
+export interface ICategories extends Array<ICategory> {}
 
-interface Category {
+interface ICategory {
   id: number;
   title: string;
   imageUrl: string;
 }
 
-const Directory = ({ categories }: { categories: Categories }) => {
+const Directory = ({ categories }: { categories: ICategories }) => {
   return (
     <div className='directory-container'>
-      {categories.map((category: Category) => (
+      {categories.map((category: ICategory) => (
         <CategoryItem key={category.id} category={category} />
       ))}
     </div>
