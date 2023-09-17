@@ -1,6 +1,6 @@
 import './cart-item.styles.scss';
 
-interface ICartItem {
+export interface ICartItem {
   name: string;
   quantity: number;
   imageUrl: string;
