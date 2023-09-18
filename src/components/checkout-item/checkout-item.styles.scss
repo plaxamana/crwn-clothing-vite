@@ -27,16 +27,16 @@
   .quantity {
     display: flex;
 
-    .arrow {
-      cursor: pointer;
-    }
-
     .value {
       margin: 0 10px;
     }
   }
 
-  .remove-button {
+  .remove-button,
+  .arrow {
+    background: none;
+    border: 0;
+    font-size: 20px;
     cursor: pointer;
   }
 }
