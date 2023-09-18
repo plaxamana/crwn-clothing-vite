@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import './product-card.styles.scss';
 import Button from 'components/button/button.component';
 
-import { IProduct } from 'src/contexts/products.context';
+import { IProduct } from 'src/contexts/categories.context';
 import { CartContext } from 'contexts/cart.context';
 
 const ProductCard = ({ product }: { product: IProduct }) => {

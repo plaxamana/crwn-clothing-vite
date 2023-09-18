@@ -5,7 +5,7 @@ import {
   Dispatch,
   useEffect,
 } from 'react';
-import { IProduct } from './products.context';
+import { IProduct } from './categories.context';
 
 interface ICartItems extends IProduct {
   quantity: number;
@@ -55,8 +55,8 @@ const removeCartItem = (cartItems, productToRemove, removeItem) => {
 };
 
 const clearCartItem = (cartItems, cartItem) => {
-  return cartItems.filter((item) => item.id !== cartItem.id)
-}
+  return cartItems.filter((item) => item.id !== cartItem.id);
+};
 
 export const CartContext = createContext<ICartContext>({
   isCartOpen: false,
@@ -100,8 +100,8 @@ export const CartProvider = ({ children }) => {
   };
 
   const clearItemFromCart = (cartItemToClear) => {
-    setCartItems(clearCartItem(cartItems, cartItemToClear))
-  }
+    setCartItems(clearCartItem(cartItems, cartItemToClear));
+  };
 
   const value = {
     isCartOpen,
