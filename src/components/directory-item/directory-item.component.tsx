@@ -1,24 +1,24 @@
-import './category-item.styles.scss';
+import './directory-item.styles.scss';
 
 export interface ICategory {
   category: {
     imageUrl: string;
     title: string;
-  }
+  };
 }
 
-const CategoryItem = ({ category }: ICategory) => {
+const DirectoryItem = ({ category }: ICategory) => {
   const { imageUrl, title } = category;
 
   return (
-    <div className="directory-category-container">
+    <div className='directory-item-container'>
       <div
-        className="background-image"
+        className='background-image'
         style={{
           backgroundImage: `url(${imageUrl})`,
         }}
       />
-      <div className="category-body-container">
+      <div className='body'>
         <h2>{title}</h2>
         <p>Shop Now</p>
       </div>
@@ -26,4 +26,4 @@ const CategoryItem = ({ category }: ICategory) => {
   );
 };
 
-export default CategoryItem;
+export default DirectoryItem;
