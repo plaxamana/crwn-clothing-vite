@@ -1,4 +1,4 @@
-import './cart-item.styles.scss';
+import { CartItemContainer, DetailsContainer } from './cart-item.styles';
 
 export interface ICartItem {
   name: string;
@@ -11,13 +11,13 @@ const CartItem = ({ cartItem }: { cartItem: ICartItem }) => {
   const { name, quantity, imageUrl, price } = cartItem;
 
   return (
-    <div className='cart-item-container'>
+    <CartItemContainer>
       <img src={imageUrl} alt={name} />
-      <div className='item-details'>
+      <DetailsContainer>
         <span className='name'>{name}</span>
         <span className='price'>{quantity} x ${price}</span>
-      </div>
-    </div>
+      </DetailsContainer>
+    </CartItemContainer>
   );
 };
 

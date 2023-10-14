@@ -1,7 +1,12 @@
 import type { ComponentPropsWithoutRef } from 'react';
-import './button.styles.scss';
+import {
+  BaseButton,
+  SignInWithGoogleButton,
+  InvertedButton,
+} from './button.styles';
 
 interface ButtonTypes {
+  base: string;
   google: string;
   inverted: string;
 }
@@ -11,22 +16,23 @@ interface IButton extends ComponentPropsWithoutRef<'button'> {
   buttonType?: string;
 }
 
-const BUTTON_TYPE_CLASSES: ButtonTypes = {
+// eslint-disable-next-line react-refresh/only-export-components
+export const BUTTON_TYPE_CLASSES: ButtonTypes = {
+  base: 'base',
   google: 'google-sign-in',
   inverted: 'inverted',
 };
 
+const getButton = (buttonType = BUTTON_TYPE_CLASSES.base) =>
+  ({
+    [BUTTON_TYPE_CLASSES.base]: BaseButton,
+    [BUTTON_TYPE_CLASSES.google]: SignInWithGoogleButton,
+    [BUTTON_TYPE_CLASSES.inverted]: InvertedButton,
+  }[buttonType]);
+
 const Button = ({ children, buttonType, ...otherProps }: IButton) => {
-  return (
-    <button
-      className={`${
-        BUTTON_TYPE_CLASSES[buttonType as keyof ButtonTypes]
-      } button-container`}
-      {...otherProps}
-    >
-      {children}
-    </button>
-  );
+  const CustomButton = getButton(buttonType);
+  return <CustomButton {...otherProps}>{children}</CustomButton>;
 };
 
 export default Button;

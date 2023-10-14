@@ -8,7 +8,7 @@ import {
 } from 'utils/firebase/firebase.utils';
 
 import FormInput from 'components/form-input/form-input.component';
-import Button from 'components/button/button.component';
+import Button, { BUTTON_TYPE_CLASSES } from 'components/button/button.component';
 
 interface IFormFields {
   email: string;
@@ -79,7 +79,11 @@ const SignInForm = () => {
 
         <div className='buttons-container'>
           <Button type='submit'>Sign In</Button>
-          <Button type='button' buttonType='google' onClick={signInWithGoogle}>
+          <Button
+            type='button'
+            buttonType={BUTTON_TYPE_CLASSES.google}
+            onClick={signInWithGoogle}
+          >
             Google Sign In
           </Button>
         </div>
