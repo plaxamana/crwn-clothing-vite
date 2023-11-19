@@ -1,10 +1,10 @@
 import { CartItemContainer, DetailsContainer } from './cart-item.styles';
 
 export interface ICartItem {
-  name: string;
-  quantity: number;
-  imageUrl: string;
-  price: number;
+  name?: string;
+  quantity?: number;
+  imageUrl?: string;
+  price?: number;
 }
 
 const CartItem = ({ cartItem }: { cartItem: ICartItem }) => {

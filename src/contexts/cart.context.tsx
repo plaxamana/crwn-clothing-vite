@@ -8,6 +8,7 @@ import {
 import { IProduct } from './categories.context';
 
 interface ICartItems extends IProduct {
+  id?: number;
   quantity: number;
 }
 
