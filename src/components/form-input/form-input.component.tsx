@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react';
-import './form-input.styles.scss';
+import { Group, FormInputLabel, Input } from './form-input.styles';
 
 interface IFormInput extends ComponentPropsWithoutRef<'input'> {
   label: string;
@@ -8,18 +8,13 @@ interface IFormInput extends ComponentPropsWithoutRef<'input'> {
 
 export default function FormInput({ label, id, ...otherProps }: IFormInput) {
   return (
-    <div className='group'>
-      <input className='form-input' {...otherProps} />
+    <Group>
+      <Input {...otherProps} />
       {label && (
-        <label
-          htmlFor={id}
-          className={`${
-            otherProps.value?.length ? 'shrink' : ''
-          } form-input-label`}
-        >
+        <FormInputLabel htmlFor={id} shrink={otherProps.value?.length}>
           {label}
-        </label>
+        </FormInputLabel>
       )}
-    </div>
+    </Group>
   );
 }

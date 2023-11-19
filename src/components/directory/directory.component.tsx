@@ -1,6 +1,6 @@
 import DirectoryItem from '../directory-item/directory-item.component';
 
-import './directory.styles.scss';
+import { DirectoryContainer } from './directory.styles';
 
 export interface ICategories extends Array<ICategory> {}
 
@@ -12,11 +12,11 @@ interface ICategory {
 
 const Directory = ({ categories }: { categories: ICategories }) => {
   return (
-    <div className='directory-container'>
+    <DirectoryContainer>
       {categories.map((category: ICategory) => (
         <DirectoryItem key={category.id} category={category} />
       ))}
-    </div>
+    </DirectoryContainer>
   );
 };
 

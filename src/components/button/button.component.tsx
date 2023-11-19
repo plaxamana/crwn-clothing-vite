@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react';
 import {
   BaseButton,
-  SignInWithGoogleButton,
+  GoogleSignInButton,
   InvertedButton,
 } from './button.styles';
 
@@ -26,7 +26,7 @@ export const BUTTON_TYPE_CLASSES: ButtonTypes = {
 const getButton = (buttonType = BUTTON_TYPE_CLASSES.base) =>
   ({
     [BUTTON_TYPE_CLASSES.base]: BaseButton,
-    [BUTTON_TYPE_CLASSES.google]: SignInWithGoogleButton,
+    [BUTTON_TYPE_CLASSES.google]: GoogleSignInButton,
     [BUTTON_TYPE_CLASSES.inverted]: InvertedButton,
   }[buttonType]);
 
