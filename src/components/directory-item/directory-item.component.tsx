@@ -10,15 +10,16 @@ export interface ICategory {
   category: {
     imageUrl: string;
     title: string;
+    route: string;
   };
 }
 
 const DirectoryItem = ({ category }: ICategory) => {
-  const { imageUrl, title } = category;
+  const { imageUrl, title, route } = category;
   const navigate = useNavigate();
 
   const handleNavigation = () => {
-    navigate(`/shop/${title}`)
+    navigate(route)
   }
 
   return (
