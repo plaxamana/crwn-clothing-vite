@@ -4,6 +4,7 @@ import { DirectoryContainer } from './directory.styles';
 
 export interface ICategories extends Array<ICategory> {}
 
+// interface
 interface ICategory {
   id: number;
   title: string;
