@@ -9,7 +9,7 @@ import {
 
 import CartItem from 'components/cart-item/cart-item.component';
 import { CartContext } from 'src/contexts/cart.context';
-import { useClickAway } from 'src/hooks/useClickaway';
+import { useClickAway } from 'src/hooks/useClickAway';
 
 const CartDropdown = () => {
   const { cartItems, setIsCartOpen } = useContext(CartContext);
