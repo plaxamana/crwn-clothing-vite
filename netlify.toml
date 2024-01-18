@@ -4,6 +4,6 @@ status = 200
 to = '/index.html'
 
 [build]
-command = 'yarn run build'
+command = 'CI= yarn run build'
 environment = {NODE_VERSION = '18'}
 publish = 'dist'
